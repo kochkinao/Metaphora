@@ -1,0 +1,90 @@
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
+import emoji, config
+
+
+#REPLY MAIN MENU
+nachat_razbor = KeyboardButton(text='Начать разбор')
+MAK = KeyboardButton(text='Что такое МАК карты?')
+day = KeyboardButton (text='Карта дня')
+start = ReplyKeyboardMarkup(resize_keyboard=True).add(nachat_razbor).row(MAK, day)
+
+#Buttons "Back" and "Main menu"
+back = KeyboardButton(text = 'Назад')
+main_menu = KeyboardButton(text = 'Главное меню')
+main_menu_kb = ReplyKeyboardMarkup(resize_keyboard=True).add(main_menu)
+
+#REPLY THEMS
+phinans = KeyboardButton (text='Финансы')
+otnoshenia = KeyboardButton (text='Отношения')
+zdorovie = KeyboardButton (text='Здоровье')
+realizacia = KeyboardButton (text='Реализация')
+sostoyanie = KeyboardButton(text='Состояние')
+thems = ReplyKeyboardMarkup(resize_keyboard=True).row(phinans, otnoshenia).row(zdorovie, realizacia).add(sostoyanie).add(back)
+
+#REPLY DECKS
+allegorii = KeyboardButton (text='Аллегории')
+radost = KeyboardButton (text='Радости внутреннего ребенка')
+strah = KeyboardButton (text='Внутренние страхи')
+decks = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(allegorii, radost).row(strah).add(back, main_menu)
+
+#REPLY NUMS
+one = KeyboardButton(text='1')
+two = KeyboardButton(text='2')
+three = KeyboardButton(text='3')
+four = KeyboardButton(text='4')
+five = KeyboardButton(text='5')
+six = KeyboardButton(text='6')
+num = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(one,two,three).row(four,five,six).add(back, main_menu)
+
+#REPLY "Using bot" and "Go to channel"
+use_bot = KeyboardButton(text = 'Использовать бота')
+go_channel = KeyboardButton(text = 'Перейти в канал')
+mem = ReplyKeyboardMarkup(resize_keyboard = True, one_time_keyboard=True).row(use_bot, go_channel).add(main_menu)
+
+#REPLY "Don't want"
+ne_hochy = KeyboardButton(text = 'Не хочу отправлять')
+zhelanie = ReplyKeyboardMarkup(resize_keyboard=True).add(ne_hochy)
+
+#REPLY "Yes" and "No"
+yes = KeyboardButton(text='Да')
+no = KeyboardButton(text='Нет')
+yes_no = ReplyKeyboardMarkup(resize_keyboard=True).add(yes, no).add(main_menu)
+
+#REPLY "Estimate" and "Try again"
+ozenka = KeyboardButton(text = 'Оценить')
+ocenka = ReplyKeyboardMarkup(resize_keyboard=True).add(ozenka).add(main_menu)
+
+#REPLY ESTIMATE SMILE
+top = emoji.emojize(':grinning_face_with_smiling_eyes:')
+medium = emoji.emojize(':neutral_face:')
+bad = emoji.emojize(':slightly_frowning_face:')
+smile1 = KeyboardButton(text=f'Отлично {top}')
+smile2 = KeyboardButton(text=f'Нормально {medium}')
+smile3 = KeyboardButton(text=f'Плохо {bad}')
+estination = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(smile1, smile2, smile3).add(main_menu)
+
+#REPLY PULL OUT A CARD
+pull = KeyboardButton(text='Вытянуть карту')
+pull_out = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(pull)
+
+
+#INLINE PRODOLZHIT S BOTOM
+cont_with_bot = InlineKeyboardButton(text = 'Продолжить самостоятельно', callback_data='С ботом1')
+s_botom1 = InlineKeyboardMarkup().add(cont_with_bot)
+
+cont_with_bot = InlineKeyboardButton(text = 'Продолжить самостоятельно', callback_data='С ботом2')
+s_botom2 = InlineKeyboardMarkup().add(cont_with_bot)
+
+#INLINE INSTRUCTION
+btn_tg = InlineKeyboardButton(text='Получить инструкцию БЕСПЛАТНО', url=config.LINK)
+tg = InlineKeyboardMarkup().add(btn_tg)
+
+#INLINE LAST BUTTON
+chanel_in = InlineKeyboardButton(text = 'Перейти в канал', url = config.LINK)
+main_menu_in = InlineKeyboardMarkup(text = 'Главное меню', callback_data='main_menu_last')
+last = InlineKeyboardMarkup().add(chanel_in).add(main_menu_in)
+
+#REPLY ADMIN PANEL
+stat= KeyboardButton(text = 'Статистика')
+statistic = ReplyKeyboardMarkup(resize_keyboard=True).add(stat).add(main_menu)
+
