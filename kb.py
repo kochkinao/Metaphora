@@ -1,6 +1,6 @@
+import config
+import emoji
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
-import emoji, config
-
 
 #REPLY MAIN MENU
 nachat_razbor = KeyboardButton(text='Начать разбор')
@@ -8,7 +8,7 @@ MAK = KeyboardButton(text='Что такое МАК карты?')
 day = KeyboardButton (text='Карта дня')
 start = ReplyKeyboardMarkup(resize_keyboard=True).add(nachat_razbor).row(MAK, day)
 
-#Buttons "Back" and "Main menu"
+# REPLY Buttons "Back" and "Main menu"
 back = KeyboardButton(text = 'Назад')
 main_menu = KeyboardButton(text = 'Главное меню')
 main_menu_kb = ReplyKeyboardMarkup(resize_keyboard=True).add(main_menu)
@@ -35,11 +35,6 @@ four = KeyboardButton(text='4')
 five = KeyboardButton(text='5')
 six = KeyboardButton(text='6')
 num = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(one,two,three).row(four,five,six).add(back, main_menu)
-
-#REPLY "Using bot" and "Go to channel"
-use_bot = KeyboardButton(text = 'Использовать бота')
-go_channel = KeyboardButton(text = 'Перейти в канал')
-mem = ReplyKeyboardMarkup(resize_keyboard = True, one_time_keyboard=True).row(use_bot, go_channel).add(main_menu)
 
 #REPLY "Don't want"
 ne_hochy = KeyboardButton(text = 'Не хочу отправлять')
@@ -75,16 +70,22 @@ s_botom1 = InlineKeyboardMarkup().add(cont_with_bot)
 cont_with_bot = InlineKeyboardButton(text = 'Продолжить самостоятельно', callback_data='С ботом2')
 s_botom2 = InlineKeyboardMarkup().add(cont_with_bot)
 
-#INLINE INSTRUCTION
-btn_tg = InlineKeyboardButton(text='Получить инструкцию БЕСПЛАТНО', url=config.LINK)
+# INLINE INSTRUCTION
+btn_tg = InlineKeyboardButton(text='Получить инструкцию БЕСПЛАТНО', url=config.LINK, callback_data='канал2')
 tg = InlineKeyboardMarkup().add(btn_tg)
 
-#INLINE LAST BUTTON
-chanel_in = InlineKeyboardButton(text = 'Перейти в канал', url = config.LINK)
-main_menu_in = InlineKeyboardMarkup(text = 'Главное меню', callback_data='main_menu_last')
+# INLINE LAST BUTTON
+chanel_in = InlineKeyboardButton(text='Перейти в канал', url=config.LINK, callback_data='канал1')
+main_menu_in = InlineKeyboardMarkup(text='Главное меню', callback_data='main_menu_last')
 last = InlineKeyboardMarkup().add(chanel_in).add(main_menu_in)
 
-#REPLY ADMIN PANEL
-stat= KeyboardButton(text = 'Статистика')
-statistic = ReplyKeyboardMarkup(resize_keyboard=True).add(stat).add(main_menu)
-
+# REPLY ADMIN PANEL
+stat = KeyboardButton(text='Статистика')
+m_panel = ReplyKeyboardMarkup(resize_keyboard=True).add(stat).add(main_menu)
+all_users = KeyboardButton(text='Всего пользователей')
+usage = KeyboardButton(text='Использований')
+unik = KeyboardButton(text='Уникальных')
+new = KeyboardButton(text='Новых')
+regular = KeyboardButton(text='Регулярных')
+go_to_chanel = KeyboardButton(text='Переходов в канал')
+s_panel = ReplyKeyboardMarkup(resize_keyboard=True).row(all_users, usage, unik).row(new, regular, go_to_chanel).add(back)

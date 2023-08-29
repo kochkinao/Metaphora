@@ -1,6 +1,9 @@
 from aiogram import types, Dispatcher
-from state import UserState
+
 import kb
+import time
+from state import UserState
+
 
 async def deck1(msg: types.Message):
     if msg.text == 'Аллегории':
@@ -9,8 +12,10 @@ async def deck1(msg: types.Message):
         await UserState.radost.set()
     elif msg.text == 'Внутренние страхи':
         await UserState.strah.set()
-    await msg.answer('Правильно сформулированный запрос – ключевой момент в работе с МАК-картами. В правильно поставленном вопросе уже содержится часть ответа.\nЯ подготовила инструкцию, чтобы помочь тебе в этом.',
-                     reply_markup=kb.tg)
+    await msg.answer(
+        'Правильно сформулированный запрос – ключевой момент в работе с МАК-картами. В правильно поставленном вопросе уже содержится часть ответа.\nЯ подготовила инструкцию, чтобы помочь тебе в этом.',
+        reply_markup=kb.tg)
+    time.sleep(2)
     await msg.answer('Если ты хочешь попробовать самостоятельно, можешь продолжить вместе с ботом',
                      reply_markup=kb.s_botom1)
 

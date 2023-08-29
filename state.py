@@ -31,6 +31,6 @@ class UserState(StatesGroup):
     pusto = State()
     kart_day = State()
     admin_stat = State()
+    password = State()
     back_123 = State()
-
-
+    select_stat = State()
