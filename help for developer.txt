@@ -1,13 +1,3 @@
-main_menu
-select_thems_and_back (global them)
-select_deck
-select_card_in_deck (global mes)
-select_card
-help_with_card_description
-where_are_you_able_to_answer (us mes)
-anwer_your_question (us them)
-estimate
-
 THEMS IN ANSWER_YOUR_QUESTION FILE
 
 main_menu > thems_and_answer_your_question > decks > cards in deck > help with card description > thems_and_answer_your_question > estination > main_menu

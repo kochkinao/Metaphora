@@ -57,6 +57,16 @@ async def back(msg: types.Message):
     await UserState.admin_stat.set()
 
 
+async def all_stat(msg: types.Message):
+    await msg.answer(f'Всего пользователей <b>{a}</b>\n\n'
+                     f'<i>Основная</i> ветка была пройдена:\n<b>?</b> раз за день\n<b>?</b> раз за неделю\n<b>?</b> раз за месяц\n'
+                     f'Ветка <i>"Карта дня"</i> была пройдена:\n<b>?</b> раз за день\n<b>?</b> раз за неделю\n<b>?</b> раз за месяц\n\n'
+                     f'<i>Основную</i> ветку посетили за сегодня <b>?</b> раз\n'
+                     f'Ветку <i>"Карта дня"</i> посетили за сегодня <b>?</b> раз\n\n'
+                     f'Новых пользователей:\n<b>?</b> за день\n<b>?</b> за неделю\n<b>?</b> за месяц\n\n'
+                     f'Регулярных пользователей <b>?</b>\n\n'
+                     f'Переходов в канал <b>?</b>', parse_mode='HTML')
+
 def register_handler_admin_panel(dp: Dispatcher):
     dp.register_message_handler(admin, state='*', commands=['admin'])
     dp.register_message_handler(admin_panel, state=UserState.password, text='Кот в зимних сапогах')
@@ -68,3 +78,4 @@ def register_handler_admin_panel(dp: Dispatcher):
     dp.register_message_handler(regular, state=UserState.select_stat, text='Регулярных')
     dp.register_message_handler(go_channel, state=UserState.select_stat, text='Переходов в канал')
     dp.register_message_handler(back, state=UserState.select_stat, text='Назад')
+    dp.register_message_handler(all_stat, state=UserState.select_stat, text='Общая статистика')

@@ -1,6 +1,7 @@
-import config
 import emoji
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
+
+import config
 
 #REPLY MAIN MENU
 nachat_razbor = KeyboardButton(text='Начать разбор')
@@ -88,4 +89,6 @@ unik = KeyboardButton(text='Уникальных')
 new = KeyboardButton(text='Новых')
 regular = KeyboardButton(text='Регулярных')
 go_to_chanel = KeyboardButton(text='Переходов в канал')
-s_panel = ReplyKeyboardMarkup(resize_keyboard=True).row(all_users, usage, unik).row(new, regular, go_to_chanel).add(back)
+all_stat = KeyboardButton(text='Общая статистика')
+s_panel = ReplyKeyboardMarkup(resize_keyboard=True).row(all_users, usage, unik).row(new, regular, go_to_chanel).row(
+    all_stat, back)
