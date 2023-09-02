@@ -15,28 +15,23 @@ async def answer_yes_no(msg:types.Message):
     if msg.text == 'Да':
         await msg.answer('Я рада, что бот помог ответить на волнующий вопрос!\nЯ подготовила для тебя видео по теме твоего запроса')
         if them == 'Финансы':
-            with open(photo.video, 'rb') as video:
-                await bot.send_video(msg.from_user.id, video=video)
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZyWTzJKMh3gyr5FRAshxTG5eUEahIAAIxMQACWgiBS9COFbzd8y4jMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцените бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Отношения':
-            with open(photo.video, 'rb') as video:
-                await bot.send_video(msg.from_user.id, video=video)
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZ0WTzJKM1L0IItaqYpOae0tncwMtoAAKBMQACWgiBSw3Sb9SI2HY-MAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцените бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Здоровье':
-            with open(photo.video, 'rb') as video:
-                await bot.send_video(msg.from_user.id, video=video)
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZzWTzJKOEgG5EQY9ANLZSOcR6DIw0AAJgMQACWgiBSwpIfj7jXNEaMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцените бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Реализация':
-            with open(photo.video, 'rb') as video:
-                await bot.send_video(msg.from_user.id, video=video)
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZz2TzJKOznjLsvDdWENBVua-43tqsAAJmMQACWgiBS7lln0x0iVzwMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцените бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Состояние':
-            with open(photo.video, 'rb') as video:
-                await bot.send_video(msg.from_user.id, video=video)
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZy2TzJKNlgWyV1JA7_0_A-w_s0EocAAJJMQACWgiBSyYKBKPQ8GAcMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцените бота. Это нужно для его улучшения', reply_markup=kb.estination)
 
