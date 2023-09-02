@@ -1,6 +1,6 @@
 from aiogram import types, Dispatcher
 from state import UserState
-import kb
+import kb, bd
 
 async def back_last(msg:types.Message):
     await UserState.estination.set()
@@ -8,6 +8,12 @@ async def back_last(msg:types.Message):
 
 async def estin(msg:types.Message):
     await UserState.last.set()
+    if msg.text == 'Отлично 😃':
+        bd.set_good(1)
+    elif msg.text == 'Нормально 😌':
+        bd.set_normal(1)
+    elif msg.text == 'Плохо 😠':
+        bd.set_bad(1)
     await msg.answer('Благодарю тебя за использование бота и за оценку! Приглашаю тебя на мой канал, если ты еще не подписан(а), там много полезной информации по работе с МАК-картами и пониманию себя и своих истинных желаний. Также ты можешь записаться ко мне на коуч-сессию и консультацию с МАК-картами.',
                      reply_markup=kb.last)
 

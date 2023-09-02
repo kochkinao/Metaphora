@@ -24,6 +24,12 @@ async def all_users(msg: types.Message):
     a = bd.getting_the_nuber_of_users(0)
     await msg.answer(f'Всего пользователей <b>{a}</b>', parse_mode="HTML")
 
+async def estim(msg:types.Message):
+    a = bd.getting_good(0)
+    b = bd.getting_normal(0)
+    c = bd.getting_bad(0)
+    await msg.answer(f'Учавствующие в опросе ответили:\n<i>Отлично</i> <b>{a}</b> раз(а)\n<i>Нормально</i> <b>{b}</b> раз(а)\n<i>Плохо</i> <b>{c}</b> раз(а)',
+                     parse_mode='HTML')
 
 async def usage(msg: types.Message):
     await msg.answer(
@@ -72,6 +78,7 @@ def register_handler_admin_panel(dp: Dispatcher):
     dp.register_message_handler(admin_panel, state=UserState.password, text='Кот в зимних сапогах')
     dp.register_message_handler(stat, state=UserState.admin_stat, text='Статистика')
     dp.register_message_handler(all_users, state=UserState.select_stat, text='Всего пользователей')
+    dp.register_message_handler(estim, state=UserState.select_stat, text = 'Оценка')
     dp.register_message_handler(usage, state=UserState.select_stat, text='Использований')
     dp.register_message_handler(unik, state=UserState.select_stat, text='Уникальных')
     dp.register_message_handler(new, state=UserState.select_stat, text='Новых')
