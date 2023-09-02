@@ -24,7 +24,6 @@ class UserState(StatesGroup):
     question5 = State()
     question6 = State()
     question7 = State()
-    question8 = State()
     answer = State()
     estination = State()
     last = State()

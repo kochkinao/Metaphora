@@ -14,7 +14,7 @@ async def hi(msg:types.Message, state: FSMContext):
 
 async def start_razbor(msg:types.Message):
     await UserState.thems.set() #select thems
-    await msg.answer('Выберите тему',
+    await msg.answer('Выбери тему',
                      reply_markup=kb.thems)
 
 async def mak_karty(msg:types.Message):
@@ -23,8 +23,10 @@ async def mak_karty(msg:types.Message):
 
 async def karta_dnya(msg:types.Message):
     await UserState.kart_day.set()
-    await msg.answer('Простой и интересный вариант для самоисследования с одной картой. Сосредоточься на актуальном вопросе или неразрешенной проблеме, вытяни карту и проанализируй, какие ассоциации она вызывает.\n\nНапример,\nНа что мне сегодня важно обратить внимание?\nНа какой теме мне сегодня важно сосредоточиться?\nКакая(ой) я сейчас (как чувствую-ощущаю себя, о чём думаю)?',
-                     reply_markup=kb.pull_out)
+    await msg.answer('Простой и интересный вариант для быстрого самоисследования с одной картой. Сосредоточься на актуальном вопросе, который важен для тебя сегодня. Вытяни карту и проанализируй, какие ассоциации она вызывает')
+    await msg.answer(f'Пример:\n<i>На что мне сегодня важно обратить внимание?\nНа какой теме важно сейчас сосредоточиться?\nКак я себя чувствую сейчас?</i>',
+                     reply_markup=kb.pull_out,
+                     parse_mode='HTML')
 
 def register_handler_main_menu(dp:Dispatcher):
     dp.register_message_handler(hi, commands=['start', 'restart'], state='*')

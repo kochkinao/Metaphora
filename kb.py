@@ -44,20 +44,17 @@ zhelanie = ReplyKeyboardMarkup(resize_keyboard=True).add(ne_hochy)
 #REPLY "Yes" and "No"
 yes = KeyboardButton(text='Да')
 no = KeyboardButton(text='Нет')
-yes_no = ReplyKeyboardMarkup(resize_keyboard=True).add(yes, no).add(main_menu)
+yes_no = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(yes, no).add(main_menu)
 
 #REPLY "Estimate" and "Try again"
 ozenka = KeyboardButton(text = 'Оценить')
 ocenka = ReplyKeyboardMarkup(resize_keyboard=True).add(ozenka).add(main_menu)
 
-#REPLY ESTIMATE SMILE
-top = emoji.emojize(':grinning_face_with_smiling_eyes:')
-medium = emoji.emojize(':neutral_face:')
-bad = emoji.emojize(':slightly_frowning_face:')
-smile1 = KeyboardButton(text=f'Отлично {top}')
-smile2 = KeyboardButton(text=f'Нормально {medium}')
-smile3 = KeyboardButton(text=f'Плохо {bad}')
-estination = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(smile1, smile2, smile3).add(main_menu)
+#REPLY ESTIMATE SMIL
+smile1 = KeyboardButton(text=f'Отлично 😃')
+smile2 = KeyboardButton(text=f'Нормально 😌')
+smile3 = KeyboardButton(text=f'Плохо 😠')
+estination = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(smile3, smile2, smile1).add(main_menu)
 
 #REPLY PULL OUT A CARD
 pull = KeyboardButton(text='Вытянуть карту')

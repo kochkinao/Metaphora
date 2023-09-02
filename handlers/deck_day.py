@@ -13,7 +13,7 @@ async def random_deck(msg:types.Message):
     await msg.answer('Если тебе интересно, как работать с МАК-картами самостоятельно для разрешения своих запросов, то я рекомендую прочитать мою бесплатную инструкцию.', reply_markup=kb.tg)
     time.sleep(1)
     await UserState.estination.set()
-    await msg.answer('Оцени этот раздел', reply_markup=kb.estination)
+    await msg.answer('Пожалуйста, оцени этот раздел', reply_markup=kb.estination)
 
 def register_handler_deck_day(dp:Dispatcher):
     dp.register_message_handler(random_deck, state=UserState.kart_day, text='Вытянуть карту')

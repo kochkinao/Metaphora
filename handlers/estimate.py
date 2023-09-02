@@ -13,5 +13,5 @@ async def estin(msg:types.Message):
 
 def register_handler_estimate(dp:Dispatcher):
     dp.register_message_handler(back_last, text='Оценить', state=UserState.answer)
-    dp.register_message_handler(estin, state=UserState.estination, text=[f'Отлично {kb.top}', f'Нормально {kb.medium}', f'Плохо {kb.bad}'])
+    dp.register_message_handler(estin, state=UserState.estination, text=[f'Отлично 😃', f'Нормально 😌', f'Плохо 😠'])
 
