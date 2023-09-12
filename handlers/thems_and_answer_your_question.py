@@ -15,23 +15,23 @@ async def answer_yes_no(msg:types.Message):
     if msg.text == 'Да':
         await msg.answer('Я рада, что бот помог тебе!')
         if them == 'Финансы':
-            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZyWTzJKMh3gyr5FRAshxTG5eUEahIAAIxMQACWgiBS9COFbzd8y4jMAQ')
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAMlZQABXGbECrHA5RIYPkR4iSfvsSg3AAIxMQACWgiBS5KgOfJ1q65aMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцени бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Отношения':
-            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZ0WTzJKM1L0IItaqYpOae0tncwMtoAAKBMQACWgiBSw3Sb9SI2HY-MAQ')
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAMpZQABXSCGWVjONhI20pqOekKcDQNsAAKBMQACWgiBS03E2fvYRmDqMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцени бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Здоровье':
-            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZzWTzJKOEgG5EQY9ANLZSOcR6DIw0AAJgMQACWgiBSwpIfj7jXNEaMAQ')
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAMnZQABXLE7RlHD7am7mdMdPqf0NDM9AAJgMQACWgiBS9_PpFObp9QcMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцени бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Реализация':
-            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZz2TzJKOznjLsvDdWENBVua-43tqsAAJmMQACWgiBS7lln0x0iVzwMAQ')
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAMoZQABXQHMyWJ_XkEXwG-U_RmSt8BuAAJmMQACWgiBS3GSujAOS8OtMAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцени бота. Это нужно для его улучшения', reply_markup=kb.estination)
         elif them == 'Состояние':
-            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAIZy2TzJKNlgWyV1JA7_0_A-w_s0EocAAJJMQACWgiBSyYKBKPQ8GAcMAQ')
+            await bot.send_video_note(msg.from_user.id, video_note='DQACAgIAAxkBAAMmZQABXJUapS59pEFkx5aftzENTeDgAAJJMQACWgiBS_2sD1NtshY5MAQ')
             time.sleep(5)
             await msg.answer('Пожалуйста, оцени бота. Это нужно для его улучшения', reply_markup=kb.estination)
 

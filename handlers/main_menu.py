@@ -1,13 +1,13 @@
 from aiogram import types, Dispatcher
 from state import UserState
 from aiogram.dispatcher import FSMContext
-from bd import set_chat_id
+from create_bot import db
 from config import LINK
 import kb
 
-async def hi(msg:types.Message, state: FSMContext):
-    set_chat_id(msg.from_user.id)
-    await state.finish()
+async def hi(msg:types.Message):
+    if not db.user_exsits(msg.from_user.id):
+        db.add_user(msg.from_user.id)
     await UserState.start_menu.set() #select in main menu
     await msg.answer(f"Привет, рада тебя здесь видеть. Этот бот поможет тебе разрешить запрос из разных сфер жизни, а также посмотреть полезные рекомендации. Создатель бота – Я, Ксения Барашкина, Лайф-Коуч и МАК-терапевт. Моя главная задача - это облегчать жизнь людям и улучшать их состояние. Буду рада видеть тебя на своем <a href='{LINK}'>канале.</a>",
                      reply_markup=kb.start, parse_mode="HTML")

@@ -4,7 +4,6 @@ from create_bot import dp
 from bd import *
 from set_default_commands import set_default_commands
 
-create_table()
 
 #create log
 logging.basicConfig(level=logging.INFO)

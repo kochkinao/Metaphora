@@ -69,7 +69,7 @@ cont_with_bot = InlineKeyboardButton(text = 'Продолжить самосто
 s_botom2 = InlineKeyboardMarkup().add(cont_with_bot)
 
 # INLINE INSTRUCTION
-btn_tg = InlineKeyboardButton(text='Получить инструкцию БЕСПЛАТНО', url=config.LINK, callback_data='канал2')
+btn_tg = InlineKeyboardButton(text='Получить инструкцию на моем канале', url=config.LINK, callback_data='канал2')
 tg = InlineKeyboardMarkup().add(btn_tg)
 
 # INLINE LAST BUTTON
@@ -82,10 +82,4 @@ stat = KeyboardButton(text='Статистика')
 m_panel = ReplyKeyboardMarkup(resize_keyboard=True).add(stat).add(main_menu)
 all_users = KeyboardButton(text='Всего пользователей')
 estimate = KeyboardButton(text='Оценка')
-usage = KeyboardButton(text='Использований')
-unik = KeyboardButton(text='Уникальных')
-new = KeyboardButton(text='Новых')
-regular = KeyboardButton(text='Регулярных')
-go_to_chanel = KeyboardButton(text='Переходов в канал')
-all_stat = KeyboardButton(text='Общая статистика')
-s_panel = ReplyKeyboardMarkup(resize_keyboard=True).row(all_users, estimate, usage).row(unik, new, regular).row(all_stat, back, go_to_chanel)
+s_panel = ReplyKeyboardMarkup(resize_keyboard=True).row(all_users, estimate).add(back)
