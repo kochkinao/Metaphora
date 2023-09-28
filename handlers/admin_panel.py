@@ -61,6 +61,20 @@ async def newsletter_photo(msg: types.Message, state: FSMContext):
             pass
     await msg.answer('Рассылка отправлена')
 
+async def newsletter_video(msg: types.Message, state: FSMContext):
+    users = db.get_user()
+    await state.update_data(video_id=msg.video.file_id)
+    await state.update_data(caption=msg.caption)
+    a = await state.get_data()
+    video_id = a['video_id']
+    caption = a['caption']
+    for row in users:
+        try:
+            await bot.send_video(row[0], video = video_id, caption=caption)
+        except:
+            pass
+    await msg.answer('Рассылка отправлена')
+
 async def newsletter_note(msg: types.Message, state: FSMContext):
     users = db.get_user()
     await state.update_data(note_id=msg.video_note.file_id)
@@ -114,3 +128,4 @@ def register_handler_admin_panel(dp: Dispatcher):
     dp.register_message_handler(newsletter_note, state=UserState.newsletter1, content_types='video_note')
     dp.register_message_handler(newsletter_document, state=UserState.newsletter1, content_types='document')
     dp.register_message_handler(newsletter_voice, state=UserState.newsletter1, content_types='voice')
+    dp.register_message_handler(newsletter_video, state=UserState.newsletter1, content_types='video')
