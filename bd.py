@@ -19,6 +19,17 @@ class Database:
         with self.connection:
             self.cursor.execute("INSERT INTO 'data' ('user_id') VALUES (?)", (user_id,))
 
+    def add_start_user(self):
+        with self.connection:
+            a = self.cursor.execute("SELECT start FROM data WHERE id = 1").fetchone()
+            b = a[0] + 1
+            self.cursor.execute(f"UPDATE data SET start = {b} WHERE id = 1")
+
+    def get_start_user(self):
+        with self.connection:
+            result = self.cursor.execute("SELECT start FROM data WHERE id = 1").fetchone()
+            return result[0]
+
     def add_good(self):
         with self.connection:
             a = self.cursor.execute("SELECT good FROM data WHERE id = 1").fetchone()
@@ -52,3 +63,5 @@ class Database:
             result = self.cursor.execute("SELECT bad FROM data WHERE id = 1").fetchone()
             return result[0]
 
+    def get_user(self):
+        return self.cursor.execute("SELECT user_id FROM data").fetchall()

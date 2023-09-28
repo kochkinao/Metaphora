@@ -33,3 +33,4 @@ class UserState(StatesGroup):
     password = State()
     back_123 = State()
     select_stat = State()
+    newsletter1 = State()

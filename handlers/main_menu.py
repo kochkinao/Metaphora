@@ -6,6 +6,7 @@ from config import LINK
 import kb
 
 async def hi(msg:types.Message):
+    db.add_start_user()
     if not db.user_exsits(msg.from_user.id):
         db.add_user(msg.from_user.id)
     await UserState.start_menu.set() #select in main menu

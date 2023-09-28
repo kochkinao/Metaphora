@@ -10,9 +10,12 @@ day = KeyboardButton (text='Карта дня')
 start = ReplyKeyboardMarkup(resize_keyboard=True).add(nachat_razbor).row(MAK, day)
 
 # REPLY Buttons "Back" and "Main menu"
-back = KeyboardButton(text = 'Назад')
+back_btn = KeyboardButton(text = 'Назад')
 main_menu = KeyboardButton(text = 'Главное меню')
 main_menu_kb = ReplyKeyboardMarkup(resize_keyboard=True).add(main_menu)
+
+#REPLY BACK
+back = ReplyKeyboardMarkup(resize_keyboard=True).add(back_btn)
 
 #REPLY THEMS
 phinans = KeyboardButton (text='Финансы')
@@ -20,13 +23,13 @@ otnoshenia = KeyboardButton (text='Отношения')
 zdorovie = KeyboardButton (text='Здоровье')
 realizacia = KeyboardButton (text='Реализация')
 sostoyanie = KeyboardButton(text='Состояние')
-thems = ReplyKeyboardMarkup(resize_keyboard=True).row(phinans, otnoshenia).row(zdorovie, realizacia).add(sostoyanie).add(back)
+thems = ReplyKeyboardMarkup(resize_keyboard=True).row(phinans, otnoshenia).row(zdorovie, realizacia).add(sostoyanie).add(back_btn)
 
 #REPLY DECKS
 allegorii = KeyboardButton (text='Аллегории')
 radost = KeyboardButton (text='Радости внутреннего ребенка')
 strah = KeyboardButton (text='Внутренние страхи')
-decks = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(allegorii, radost).row(strah).add(back, main_menu)
+decks = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(allegorii, radost).row(strah).add(back_btn, main_menu)
 
 #REPLY NUMS
 one = KeyboardButton(text='1')
@@ -35,7 +38,7 @@ three = KeyboardButton(text='3')
 four = KeyboardButton(text='4')
 five = KeyboardButton(text='5')
 six = KeyboardButton(text='6')
-num = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(one,two,three).row(four,five,six).add(back, main_menu)
+num = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(one,two,three).row(four,five,six).add(back_btn, main_menu)
 
 #REPLY "Don't want"
 ne_hochy = KeyboardButton(text = 'Не хочу отправлять')
@@ -79,7 +82,9 @@ last = InlineKeyboardMarkup().add(chanel_in).add(main_menu_in)
 
 # REPLY ADMIN PANEL
 stat = KeyboardButton(text='Статистика')
-m_panel = ReplyKeyboardMarkup(resize_keyboard=True).add(stat).add(main_menu)
+newsletter = KeyboardButton(text='Рассылка сообщения')
+m_panel = ReplyKeyboardMarkup(resize_keyboard=True).add(stat, newsletter).add(main_menu)
 all_users = KeyboardButton(text='Всего пользователей')
 estimate = KeyboardButton(text='Оценка')
-s_panel = ReplyKeyboardMarkup(resize_keyboard=True).row(all_users, estimate).add(back)
+star = KeyboardButton(text='Кол-во нажатий start')
+s_panel = ReplyKeyboardMarkup(resize_keyboard=True).row(all_users, estimate, star, newsletter).add(back_btn)
